@@ -1,0 +1,19 @@
+apply plugin: 'java'
+
+
+//Test executor for debugging.
+task harness(type:JavaExec) {
+systemProperty 'java.util.logging.ConsoleHandler.level', 'ALL'
+	group = 'verification'
+	main = 'org.keeber.hue.Harness'
+	classpath{[sourceSets.main.runtimeClasspath,sourceSets.test.runtimeClasspath]}
+}
+
+version = '0.0.0'
+
+repositories { mavenCentral();jcenter() }
+
+dependencies{
+	compile 'org.keeber:simple-rest:+'
+}	
+
